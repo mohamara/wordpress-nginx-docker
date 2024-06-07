@@ -39,7 +39,7 @@ services:
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
     volumes:
-      - dbdata:/var/lib/mysql
+      - ./dbdata:/var/lib/mysql
     command: >
       --pid-file=/var/lib/mysql/mysqld.pid --skip-host-cache --skip-name-resolve
 
@@ -75,7 +75,7 @@ services:
       #   ports:
       #     - "9000:8080"
 volumes:
-  - dbdata:
+  dbdata:
 
 
 networks:
