@@ -24,7 +24,7 @@ services:
 
   database:
     # default port 3306
-    image: mysql:lts
+    image: mysql:8
     container_name: wp-database
     env_file:
       - .env
@@ -32,10 +32,10 @@ services:
     networks:
       - wordpress
     environment:
-      - MYSQL_DATABASE=${MYSQL_DATABASE}
-      - MYSQL_USER=${MYSQL_USER}
-      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
-      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE=wordpress
+      - MYSQL_USER=wordpress
+      - MYSQL_PASSWORD=password123!
+      - MYSQL_ROOT_PASSWORD=rootpassword123
     volumes:
       - ./dbdata:/var/lib/mysql
     command:
