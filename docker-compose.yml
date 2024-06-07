@@ -21,29 +21,20 @@ services:
       - WORDPRESS_DB_NAME=${WORDPRESS_DB_NAME}
       - WORDPRESS_DB_USER=${WORDPRESS_DB_USER}
       - WORDPRESS_DB_PASSWORD=${WORDPRESS_DB_PASSWORD}
-  db:
-    image: mysql
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: example
 
   database:
     image: mysql:8
     container_name: wp-database
-    env_file:
-      - .env
-    restart: unless-stopped
+    restart: always
     networks:
       - wordpress
     environment:
-      MYSQL_DATABASE: ${MYSQL_DATABASE}
-      MYSQL_USER: ${MYSQL_USER}
-      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: password123
+      MYSQL_ROOT_PASSWORD: rootpassword123
     volumes:
       - ./dbdata:/var/lib/mysql
-    command: >
-      --pid-file=/var/lib/mysql/mysqld.pid --skip-host-cache --skip-name-resolve
 
   nginx:
     # default ports 80, 443 - expose mapping as needed to host
