@@ -16,11 +16,11 @@ services:
       - ${WORDPRESS_LOCAL_HOME}:/var/www/html
       - ${WORDPRESS_UPLOADS_CONFIG}:/usr/local/etc/php/conf.d/uploads.ini
       # - /path/to/repo/myTheme/:/var/www/html/wp-content/themes/myTheme
-    environment:
-      - WORDPRESS_DB_HOST=${WORDPRESS_DB_HOST}
-      - WORDPRESS_DB_NAME=${WORDPRESS_DB_NAME}
-      - WORDPRESS_DB_USER=${WORDPRESS_DB_USER}
-      - WORDPRESS_DB_PASSWORD=${WORDPRESS_DB_PASSWORD}
+      # environment:
+      #   - WORDPRESS_DB_HOST=${WORDPRESS_DB_HOST}
+      #   - WORDPRESS_DB_NAME=${WORDPRESS_DB_NAME}
+      #   - WORDPRESS_DB_USER=${WORDPRESS_DB_USER}
+      #   - WORDPRESS_DB_PASSWORD=${WORDPRESS_DB_PASSWORD}
 
   database:
     # default port 3306
@@ -31,11 +31,11 @@ services:
     restart: unless-stopped
     networks:
       - wordpress
-    environment:
-      - MYSQL_DATABASE=${MYSQL_DATABASE}
-      - MYSQL_USER=${MYSQL_USER}
-      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
-      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+    # environment:
+    #   - MYSQL_DATABASE=${MYSQL_DATABASE}
+    #   - MYSQL_USER=${MYSQL_USER}
+    #   - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+    #   - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
     volumes:
       - ${MYSQL_LOCAL_HOME}:/var/lib/mysql
     command:
