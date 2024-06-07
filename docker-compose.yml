@@ -33,8 +33,6 @@ services:
       MYSQL_USER: wordpress
       MYSQL_PASSWORD: password123
       MYSQL_ROOT_PASSWORD: rootpassword123
-    volumes:
-      - ./dbdata:/var/lib/mysql
 
   nginx:
     # default ports 80, 443 - expose mapping as needed to host
