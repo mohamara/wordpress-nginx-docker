@@ -38,8 +38,6 @@ services:
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-    volumes:
-      - dbdata:/var/lib/mysql
     command: >
       --pid-file=/var/lib/mysql/mysqld.pid --skip-host-cache --skip-name-resolve
 
